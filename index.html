@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valmi TV – Formação, Fé e Conteúdo Católico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-title">VALMI TV</div>
+      </div>
+
+      <div class="nav-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="programas.html">Programas</a></li>
+          <li><a href="ao-vivo.html">Ao vivo</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO PRINCIPAL -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main-card">
+          <div class="badge-live">
+            <span class="badge-dot"></span>
+            AO VIVO / EM BREVE
+          </div>
+          <h1 class="hero-title">Transmissões, análises e formação na fé católica.</h1>
+          <p class="hero-subtitle">
+            A Valmi TV reúne programas de formação, opinião, oração e podcast
+            para ajudar você a viver a fé com profundidade e clareza.
+          </p>
+          <div class="hero-actions">
+            <a href="ao-vivo.html" class="btn btn-primary">Assistir ao vivo</a>
+            <a href="programas.html" class="btn btn-secondary">Ver todos os programas</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="card-thumb">
+              <!-- Aqui você pode embutir um iframe do YouTube -->
+              <!-- <iframe ...></iframe> -->
+            </div>
+            <div class="card-title">Último episódio em destaque</div>
+            <div class="card-meta">Carregue aqui o vídeo do seu programa-chave</div>
+          </div>
+
+          <div class="card" style="margin-top: 1rem;">
+            <div class="card-title">Assine o canal</div>
+            <p class="card-meta">
+              Inscreva-se no YouTube e ative as notificações para não perder as próximas transmissões.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO PROGRAMAS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Programas</h2>
+            <p class="section-subtitle">Conteúdo organizado por temas e formatos.</p>
+          </div>
+          <a href="programas.html" class="btn btn-secondary">Ver todos</a>
+        </div>
+
+        <div class="grid-cards">
+          <a href="programas-valderi.html" class="card" style="text-decoration:none;">
+            <div class="card-thumb"></div>
+            <div class="card-title">Valderi Programas</div>
+            <div class="card-meta">Análises, opinião e formação.</div>
+          </a>
+
+          <a href="programas-afo.html" class="card" style="text-decoration:none;">
+            <div class="card-thumb"></div>
+            <div class="card-title">AFO Programas</div>
+            <div class="card-meta">Apostolado em Família de Oração.</div>
+          </a>
+
+          <a href="podcast.html" class="card" style="text-decoration:none;">
+            <div class="card-thumb"></div>
+            <div class="card-title">Observatório Podcast</div>
+            <div class="card-meta">Conversas em profundidade.</div>
+          </a>
+
+          <a href="ao-vivo.html" class="card" style="text-decoration:none;">
+            <div class="card-thumb"></div>
+            <div class="card-title">Transmissões ao vivo</div>
+            <div class="card-meta">Celebrações, eventos e especiais.</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO CHAMADA PARA AÇÃO -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title">Participe e compartilhe</h2>
+          <p class="page-description">
+            Ajude a espalhar este apostolado: compartilhe os programas, convide
+            amigos, reze conosco e acompanhe as formações semanais.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Valmi TV. Todos os direitos reservados.</div>
+      <div>Conteúdo de inspiração católica para formação e vida de oração.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('open');
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

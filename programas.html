@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Programas – Valmi TV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Copia o mesmo header da home -->
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-title">VALMI TV</div>
+      </div>
+      <div class="nav-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="programas.html">Programas</a></li>
+          <li><a href="ao-vivo.html">Ao vivo</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h1 class="page-title">Programas</h1>
+      <p class="page-description">
+        Explore os programas da Valmi TV por temática, formato e apresentador.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Coleções principais</h2>
+      <div class="grid-cards" style="margin-top: 1rem;">
+        <a href="programas-valderi.html" class="card" style="text-decoration:none;">
+          <div class="card-thumb"></div>
+          <div class="card-title">Valderi Programas</div>
+          <div class="card-meta">Opinião, crítica, análise e formação.</div>
+        </a>
+
+        <a href="programas-afo.html" class="card" style="text-decoration:none;">
+          <div class="card-thumb"></div>
+          <div class="card-title">AFO Programas</div>
+          <div class="card-meta">Família de oração, novenas e espiritualidade.</div>
+        </a>
+
+        <a href="podcast.html" class="card" style="text-decoration:none;">
+          <div class="card-thumb"></div>
+          <div class="card-title">Observatório Podcast</div>
+          <div class="card-meta">Debates e conversas em profundidade.</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Valmi TV.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('open');
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

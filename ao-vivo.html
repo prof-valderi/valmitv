@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ao vivo – Valmi TV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-title">VALMI TV</div>
+      </div>
+
+      <div class="nav-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="programas.html">Programas</a></li>
+          <li><a href="ao-vivo.html">Ao vivo</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- CABEÇALHO DA PÁGINA -->
+    <section class="page-header">
+      <h1 class="page-title">Transmissões ao vivo</h1>
+      <p class="page-description">
+        Acompanhe aqui as transmissões ao vivo da Valmi TV. Quando estivermos ao vivo,
+        o player abaixo será atualizado com a celebração, programa ou especial em andamento.
+      </p>
+    </section>
+
+    <!-- LAYOUT PRINCIPAL: PLAYER + LATERAL -->
+    <section class="section program-layout">
+      <!-- COLUNA ESQUERDA: PLAYER AO VIVO -->
+      <div>
+        <div class="program-hero">
+          <h2 class="section-title">Agora ao vivo</h2>
+          <p class="program-meta">
+            Se não houver transmissão neste momento, você verá aqui a última celebração ou programa.
+          </p>
+
+          <div class="card-thumb" style="margin-bottom: 1rem; overflow: hidden;">
+            <!-- EMBED DO YOUTUBE AO VIVO -->
+            <!-- Substitua SEU_VIDEO_ID_AQUI pelo ID do vídeo ou da transmissão ao vivo -->
+            <iframe
+              width="100%"
+              height="100%"
+              style="border:0; width:100%; aspect-ratio:16/9;"
+              src="https://www.youtube.com/embed/SEU_VIDEO_ID_AQUI"
+              title="Transmissão ao vivo Valmi TV"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://www.youtube.com/@SEU_CANAL_AQUI/live" target="_blank" class="btn btn-primary">
+              Assistir no YouTube
+            </a>
+            <a href="programas.html" class="btn btn-secondary">
+              Ver outros programas
+            </a>
+          </div>
+        </div>
+
+        <!-- TRANSMISSÕES ANTERIORES -->
+        <div class="program-episodes">
+          <h2 class="section-title" style="margin-top:1.5rem;">Transmissões recentes</h2>
+
+          <!-- Exemplo de item – duplique e preencha com links reais -->
+          <article class="episode-item">
+            <div class="episode-thumb"></div>
+            <div>
+              <h3 class="card-title">Missa votiva – Nossa Senhora</h3>
+              <div class="card-meta">01/10/2025 · Celebração Eucarística</div>
+              <p style="font-size:0.9rem; margin-top:0.25rem;">
+                Celebração transmitida ao vivo com homilia e comentários pastorais.
+              </p>
+              <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="btn btn-secondary" style="margin-top:0.4rem;">
+                Rever no YouTube
+              </a>
+            </div>
+          </article>
+
+          <article class="episode-item">
+            <div class="episode-thumb"></div>
+            <div>
+              <h3 class="card-title">Adoração ao Santíssimo</h3>
+              <div class="card-meta">25/09/2025 · Adoração</div>
+              <p style="font-size:0.9rem; margin-top:0.25rem;">
+                Momento de adoração e oração silenciosa, transmitido ao vivo.
+              </p>
+              <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" class="btn btn-secondary" style="margin-top:0.4rem;">
+                Rever no YouTube
+              </a>
+            </div>
+          </article>
+
+          <!-- Adicione quantos itens quiser -->
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA: LATERAL -->
+      <aside class="sidebar-card">
+        <h3 class="card-title">Próximas transmissões</h3>
+        <ul style="list-style:none; margin-top:0.5rem; font-size:0.9rem;">
+          <li style="margin-bottom:0.6rem;">
+            <strong>Novena de São José</strong><br />
+            <span class="card-meta">Hoje · 19h30</span>
+          </li>
+          <li style="margin-bottom:0.6rem;">
+            <strong>Missa dominical</strong><br />
+            <span class="card-meta">Domingo · 9h00</span>
+          </li>
+          <li style="margin-bottom:0.6rem;">
+            <strong>Crítica Católica – especial ao vivo</strong><br />
+            <span class="card-meta">Quarta · 20h00</span>
+          </li>
+        </ul>
+
+        <hr style="border:0; border-top:1px solid #1f2933; margin:1rem 0;" />
+
+        <h3 class="card-title">Inscreva-se para acompanhar</h3>
+        <p style="font-size:0.9rem; margin-top:0.4rem;">
+          Inscreva-se no canal da Valmi TV no YouTube e ative o sininho para
+          ser avisado sempre que uma transmissão ao vivo começar.
+        </p>
+        <a href="https://www.youtube.com/@SEU_CANAL_AQUI" target="_blank" class="btn btn-primary" style="margin-top:0.6rem;">
+          Ir para o canal no YouTube
+        </a>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Valmi TV.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('open');
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

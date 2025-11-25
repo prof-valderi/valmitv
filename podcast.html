@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Observatório Podcast – Valmi TV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-title">VALMI TV</div>
+      </div>
+
+      <div class="nav-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="programas.html">Programas</a></li>
+          <li><a href="ao-vivo.html">Ao vivo</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- CABEÇALHO -->
+    <section class="page-header">
+      <h1 class="page-title">Observatório Podcast</h1>
+      <p class="page-description">
+        Conversas, entrevistas e reflexões em profundidade sobre fé, cultura,
+        filosofia e os desafios do mundo atual à luz da Igreja.
+      </p>
+    </section>
+
+    <!-- DESCRIÇÃO + SUBSCRIÇÃO -->
+    <section class="section program-layout">
+      <!-- COLUNA ESQUERDA -->
+      <div>
+        <div class="program-hero">
+          <h2 class="section-title">Episódio em destaque</h2>
+          <p class="program-meta">
+            Aqui você pode destacar o último episódio lançado ou um especial importante.
+          </p>
+
+          <div class="card-thumb" style="margin-bottom:1rem; overflow:hidden;">
+            <!-- EMBED DO YOUTUBE DO EPISÓDIO EM DESTAQUE -->
+            <!-- Substitua DESTACADO_VIDEO_ID pelo ID do episódio do podcast no YouTube -->
+            <iframe
+              width="100%"
+              height="100%"
+              style="border:0; width:100%; aspect-ratio:16/9;"
+              src="https://www.youtube.com/embed/DESTACADO_VIDEO_ID"
+              title="Episódio em destaque – Observatório Podcast"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p>
+            Use este espaço para uma breve apresentação do podcast: quem conduz,
+            quais temas aparecem com mais frequência, qual é o ritmo de publicação, etc.
+          </p>
+
+          <div class="hero-actions" style="margin-top:1rem;">
+            <a href="https://www.youtube.com/playlist?list=SUA_PLAYLIST_PODCAST" target="_blank" class="btn btn-primary">
+              Ver playlist completa no YouTube
+            </a>
+          </div>
+        </div>
+
+        <!-- LISTA DE EPISÓDIOS -->
+        <div class="program-episodes">
+          <h2 class="section-title" style="margin-top:1.5rem;">Episódios recentes</h2>
+
+          <!-- Exemplo de episódio – duplique e altere -->
+          <article class="episode-item">
+            <div class="episode-thumb"></div>
+            <div>
+              <h3 class="card-title">EP 01 – Fé e razão na vida cotidiana</h3>
+              <div class="card-meta">35 min · 20/09/2025</div>
+              <p style="font-size:0.9rem; margin-top:0.25rem;">
+                Uma conversa sobre como conciliar o uso da razão, a busca pela verdade
+                e a vivência simples e concreta da fé.
+              </p>
+              <div class="hero-actions" style="margin-top:0.4rem;">
+                <a href="https://www.youtube.com/watch?v=PODCAST_VIDEO_ID_1" target="_blank" class="btn btn-secondary">
+                  Ouvir no YouTube
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="episode-item">
+            <div class="episode-thumb"></div>
+            <div>
+              <h3 class="card-title">EP 02 – Igreja e mundo contemporâneo</h3>
+              <div class="card-meta">48 min · 10/09/2025</div>
+              <p style="font-size:0.9rem; margin-top:0.25rem;">
+                Reflexões sobre os desafios atuais da Igreja frente à cultura contemporânea
+                e às transformações sociais rápidas.
+              </p>
+              <div class="hero-actions" style="margin-top:0.4rem;">
+                <a href="https://www.youtube.com/watch?v=PODCAST_VIDEO_ID_2" target="_blank" class="btn btn-secondary">
+                  Ouvir no YouTube
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Adicione mais <article> conforme precisar -->
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA: LATERAL -->
+      <aside class="sidebar-card">
+        <h3 class="card-title">Ouça também em</h3>
+        <p style="font-size:0.9rem; margin-top:0.4rem;">
+          Se o Observatório Podcast estiver disponível em outras plataformas,
+          você pode colocar os links aqui.
+        </p>
+        <ul style="list-style:none; margin-top:0.6rem; font-size:0.9rem;">
+          <li style="margin-bottom:0.5rem;">
+            <a href="https://open.spotify.com/show/SEU_PODCAST_SPOTIFY" target="_blank" style="color:#f5f5f5; text-decoration:none;">
+              Spotify
+            </a>
+          </li>
+          <li style="margin-bottom:0.5rem;">
+            <a href="https://podcasts.apple.com" target="_blank" style="color:#f5f5f5; text-decoration:none;">
+              Apple Podcasts
+            </a>
+          </li>
+          <li style="margin-bottom:0.5rem;">
+            <a href="https://www.youtube.com/playlist?list=SUA_PLAYLIST_PODCAST" target="_blank" style="color:#f5f5f5; text-decoration:none;">
+              YouTube – Playlist completa
+            </a>
+          </li>
+        </ul>
+
+        <hr style="border:0; border-top:1px solid #1f2933; margin:1rem 0;" />
+
+        <h3 class="card-title">Assine o podcast</h3>
+        <p style="font-size:0.9rem; margin-top:0.4rem;">
+          Em muitos aplicativos, basta procurar por “Observatório Podcast” e clicar
+          em seguir ou assinar. Assim, você recebe os novos episódios automaticamente.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Valmi TV.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('open');
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
