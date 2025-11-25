@@ -48,7 +48,7 @@
           <h2 class="section-title">Último episódio</h2>
 
           <div class="card-thumb" id="mainVideo" style="margin-bottom:1rem; overflow:hidden;">
-            <!-- Vídeo carregado via JS -->
+            <!-- Vídeo aparece aqui -->
           </div>
 
           <div class="program-meta">
@@ -63,11 +63,10 @@
         </div>
 
         <!-- ===========================
-             EPISÓDIOS RECENTES AUTOMÁTICOS
+             EPISÓDIOS RECENTES
         ============================ -->
         <div class="program-episodes">
           <h2 class="section-title">Episódios recentes</h2>
-
           <div id="recentEpisodes"></div>
         </div>
 
@@ -97,19 +96,19 @@
     }
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ===========================
-    //    CONFIGURAÇÕES
-    // ===========================
-    const API_KEY = "YOUR_API_KEY_HERE"; // <-- coloque sua API Key aqui
+    // ===============================
+    //   CONFIGURAÇÕES
+    // ===============================
+    const API_KEY = "AIzaSyAmNoCTSSD4t7YJCzo_Ak_BYXDmvFrM0cE";
     const PLAYLIST_ID = "PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9";
     const MAX_RESULTS = 3;
 
     const mainVideoDiv = document.getElementById("mainVideo");
     const recentContainer = document.getElementById("recentEpisodes");
 
-    // ===========================
-    //    BUSCAR VÍDEOS DA PLAYLIST
-    // ===========================
+    // ===============================
+    //   BUSCAR VÍDEOS DA PLAYLIST
+    // ===============================
     async function loadPlaylist() {
       const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${MAX_RESULTS}&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
 
@@ -119,7 +118,7 @@
 
         if (!data.items) return;
 
-        // --- VÍDEO PRINCIPAL (primeiro item da playlist)
+        // --- VÍDEO PRINCIPAL (primeiro item)
         const first = data.items[0].snippet;
         const firstId = first.resourceId.videoId;
 
@@ -130,7 +129,7 @@
           </iframe>
         `;
 
-        // --- EPISÓDIOS RECENTES (3 itens)
+        // --- EPISÓDIOS RECENTES ---
         recentContainer.innerHTML = data.items
           .map(item => {
             const s = item.snippet;
