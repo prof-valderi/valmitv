@@ -2,69 +2,191 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Programas – Valmi TV</title>
+  <title>Valmi TV – Formação, Fé e Conteúdo Católico</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Copia o mesmo header da home -->
   <header>
     <div class="container navbar">
       <div class="brand">
-        <div class="brand-logo"></div>
-        <div class="brand-title">VALMI TV</div>
+        <!-- Agora o título/logotipo leva para a home -->
+        <a href="index.html" class="brand-link">
+          <div class="brand-logo"></div>
+          <div class="brand-title">VALMI TV</div>
+        </a>
       </div>
+
       <div class="nav-toggle" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
+
       <nav class="nav-menu" id="navMenu">
         <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="programas.html">Programas</a></li>
-          <li><a href="ao-vivo.html">Ao vivo</a></li>
-          <li><a href="observatorio.html">Observatório</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="contato.html">Contato</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+          <li class="nav-item"><a href="programas.html" class="nav-link">Programas</a></li>
+          <li class="nav-item"><a href="ao-vivo.html" class="nav-link">Ao vivo</a></li>
+          <li class="nav-item"><a href="observatorio.html" class="nav-link">Observatório</a></li>
+          <li class="nav-item"><a href="sobre.html" class="nav-link">Sobre</a></li>
+          <li class="nav-item"><a href="contato.html" class="nav-link">Contato</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="page-header">
-      <h1 class="page-title">Programas</h1>
-      <p class="page-description">
-        Explore os programas da Valmi TV por temática, formato e apresentador.
-      </p>
+  <main>
+    <!-- HERO PRINCIPAL -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main-card">
+          <div class="badge-live">
+            <span class="badge-dot"></span>
+            AO VIVO / EM BREVE
+          </div>
+          <h1 class="hero-title">Transmissões, análises e formação na fé católica.</h1>
+          <p class="hero-subtitle">
+            A Valmi TV reúne programas de formação, opinião, oração e podcast
+            para ajudar você a viver a fé com profundidade e clareza.
+          </p>
+          <div class="hero-actions">
+            <a href="ao-vivo.html" class="btn btn-primary">Assistir ao vivo</a>
+            <a href="programas.html" class="btn btn-secondary">Ver todos os programas</a>
+          </div>
+        </div>
+
+        <!-- Card do último episódio em destaque -->
+        <div>
+          <div class="card">
+            <div class="card-thumb" id="featuredVideo">
+              <!-- Vídeo em destaque será carregado via JavaScript -->
+            </div>
+            <div class="card-title" id="featuredTitle">Último episódio em destaque</div>
+            <div class="card-meta" id="featuredMeta">
+              Carregando o episódio mais recente dos programas…
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 1rem;">
+            <div class="card-title">Assine o canal</div>
+            <p class="card-meta">
+              Inscreva-se no YouTube e ative as notificações para não perder as próximas transmissões.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- SEÇÃO PROGRAMAS – agora com cards de programas específicos -->
     <section class="section">
-      <h2 class="section-title">Coleções principais</h2>
-      <div class="grid-cards" style="margin-top: 1rem;">
-        <a href="programas-valderi.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
-          <div class="card-title">Valderi Programas</div>
-          <div class="card-meta">Opinião, crítica, análise e formação.</div>
-        </a>
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Programas</h2>
+            <p class="section-subtitle">Conteúdo organizado por temas e formatos.</p>
+          </div>
+          <a href="programas.html" class="btn btn-secondary">Ver todos</a>
+        </div>
 
-        <a href="programas-afo.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
-          <div class="card-title">AFO Programas</div>
-          <div class="card-meta">Família de oração, novenas e espiritualidade.</div>
-        </a>
+        <div class="grid-cards">
+          <!-- Cada card recebe data-playlist-id e data-program-name
+               para o JS buscar último vídeo e thumbnail. -->
 
-        <a href="observatorio.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
-          <div class="card-title">Observatório Podcast</div>
-          <div class="card-meta">Debates e conversas em profundidade.</div>
-        </a>
+          <!-- Crítica Católica -->
+          <a
+            href="programa-critica-catolica.html"
+            class="card program-card"
+            style="text-decoration:none;"
+            data-playlist-id="PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9"
+            data-program-name="Crítica Católica"
+          >
+            <div class="card-thumb program-thumb" id="thumb-critica"></div>
+            <div class="card-title">Crítica Católica</div>
+            <div class="card-meta">Análises e comentários à luz da fé.</div>
+          </a>
+
+          <!-- .filos – preencha o ID da playlist -->
+          <a
+            href="programa-filos.html"
+            class="card program-card"
+            style="text-decoration:none;"
+            data-playlist-id="PL_SEU_ID_DA_PLAYLIST_FILOS_AQUI"
+            data-program-name=".filos"
+          >
+            <div class="card-thumb program-thumb" id="thumb-filos"></div>
+            <div class="card-title">.filos</div>
+            <div class="card-meta">Reflexão filosófica e formação intelectual.</div>
+          </a>
+
+          <!-- O Católico – preencha o ID da playlist -->
+          <a
+            href="programa-o-catolico.html"
+            class="card program-card"
+            style="text-decoration:none;"
+            data-playlist-id="PL_SEU_ID_DA_PLAYLIST_OCATOLICO_AQUI"
+            data-program-name="O Católico"
+          >
+            <div class="card-thumb program-thumb" id="thumb-ocatolico"></div>
+            <div class="card-title">O Católico</div>
+            <div class="card-meta">Vida cotidiana, devoções e doutrina vivida.</div>
+          </a>
+
+          <!-- Observatório Podcast – aqui pode ser estático ou usar um thumb manual -->
+          <a
+            href="observatorio.html"
+            class="card"
+            style="text-decoration:none;"
+          >
+            <div class="card-thumb program-thumb program-thumb-static" id="thumb-observatorio"></div>
+            <div class="card-title">Observatório Podcast</div>
+            <div class="card-meta">Podcast com reflexões e entrevistas.</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO CHAMADA PARA AÇÃO -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title">Participe e compartilhe</h2>
+          <p class="page-description">
+            Ajude a espalhar este apostolado: compartilhe os programas, convide
+            amigos, reze conosco e acompanhe as formações semanais.
+          </p>
+
+          <div class="social-links">
+            <span class="social-links-label">Redes sociais:</span>
+
+            <a href="https://x.com/prof_valderi"
+               target="_blank"
+               class="social-link"
+               aria-label="Perfil no X (@prof_valderi)">
+              X
+            </a>
+
+            <a href="https://instagram.com/prof.valderi_"
+               target="_blank"
+               class="social-link"
+               aria-label="Instagram (@prof.valderi_)">
+              IG
+            </a>
+
+            <a href="https://facebook.com/prof.valderi"
+               target="_blank"
+               class="social-link"
+               aria-label="Facebook (prof.valderi)">
+              f
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <div>© <span id="year"></span> Valmi TV.</div>
+      <div>© <span id="year"></span> Valmi TV. Todos os direitos reservados.</div>
+      <div>Conteúdo de inspiração católica para formação e vida de oração.</div>
     </div>
   </footer>
 
@@ -74,9 +196,113 @@
       menu.classList.toggle('open');
     }
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ==============================
+    //  DESTAQUE + THUMBS DE PROGRAMAS
+    // ==============================
+    const API_KEY = "AIzaSyAmNoCTSSD4t7YJCzo_Ak_BYXDmvFrM0cE";
+
+    // Lista de programas com playlist
+    const programCards = Array.from(document.querySelectorAll(".program-card"));
+
+    const programs = programCards.map(card => ({
+      playlistId: card.dataset.playlistId,
+      name: card.dataset.programName,
+      cardEl: card,
+      thumbEl: card.querySelector(".program-thumb")
+    }));
+
+    const featuredVideo = document.getElementById("featuredVideo");
+    const featuredTitle = document.getElementById("featuredTitle");
+    const featuredMeta = document.getElementById("featuredMeta");
+
+    async function getLatestFromPlaylist(p) {
+      if (!p.playlistId || p.playlistId.includes("SEU_ID")) {
+        // Se ainda não configurou o ID da playlist, pula
+        return null;
+      }
+
+      const url =
+        `https://www.googleapis.com/youtube/v3/playlistItems` +
+        `?part=snippet&maxResults=1&playlistId=${p.playlistId}&key=${API_KEY}`;
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (!data.items || !data.items.length) return null;
+
+      const snippet = data.items[0].snippet;
+      const thumbs = snippet.thumbnails || {};
+      const thumbUrl =
+        (thumbs.maxres && thumbs.maxres.url) ||
+        (thumbs.high && thumbs.high.url) ||
+        (thumbs.medium && thumbs.medium.url) ||
+        (thumbs.default && thumbs.default.url) ||
+        "";
+
+      return {
+        programName: p.name,
+        playlistId: p.playlistId,
+        cardEl: p.cardEl,
+        thumbEl: p.thumbEl,
+        videoId: snippet.resourceId.videoId,
+        title: snippet.title,
+        description: snippet.description || "",
+        publishedAt: snippet.publishedAt,
+        thumbUrl
+      };
+    }
+
+    async function loadProgramHighlights() {
+      try {
+        const results = await Promise.all(programs.map(getLatestFromPlaylist));
+        const valid = results.filter(Boolean);
+
+        // Aplicar thumbnails nos cards
+        valid.forEach(v => {
+          if (v.thumbEl && v.thumbUrl) {
+            v.thumbEl.style.backgroundImage = `url('${v.thumbUrl}')`;
+            v.thumbEl.style.backgroundSize = "cover";
+            v.thumbEl.style.backgroundPosition = "center";
+          }
+        });
+
+        if (!valid.length) {
+          featuredMeta.textContent =
+            "Não foi possível carregar o episódio em destaque no momento.";
+          return;
+        }
+
+        // Escolher o vídeo mais recente entre os programas
+        const latest = valid.reduce((acc, item) => {
+          return new Date(item.publishedAt) > new Date(acc.publishedAt) ? item : acc;
+        });
+
+        // Atualizar player em destaque
+        featuredVideo.innerHTML = `
+          <iframe
+            style="width:100%; aspect-ratio:16/9; border:0;"
+            src="https://www.youtube.com/embed/${latest.videoId}"
+            title="${latest.title}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        `;
+
+        featuredTitle.textContent = "Último episódio em destaque";
+        const dataBR = new Date(latest.publishedAt).toLocaleDateString("pt-BR");
+        featuredMeta.textContent =
+          `${latest.title} · ${latest.programName} · ${dataBR}`;
+
+        // Destacar visualmente o card do programa que teve a postagem mais recente
+        latest.cardEl.classList.add("program-card-featured");
+      } catch (err) {
+        console.error("Erro ao carregar destaques:", err);
+        featuredMeta.textContent = "Erro ao carregar o episódio em destaque.";
+      }
+    }
+
+    loadProgramHighlights();
   </script>
 </body>
 </html>
-
-
-
