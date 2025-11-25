@@ -1,4 +1,6 @@
-/* RESET SIMPLES */
+/* ================================
+   RESET BÁSICO
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -12,23 +14,12 @@ body {
   line-height: 1.5;
 }
 
-/* Links sempre brancos, mesmo após clicados */
-/* Links sempre brancos, mesmo após clicados */
 a,
 a:visited {
-  color: #f5f5f5;
+  color: #f5f5f5 !important;
+  text-decoration: none;
 }
 
-
-/* Garante que nomes de programas em cards continuem brancos */
-.card .card-title,
-.card .card-title a,
-.card .card-title a:visited {
-  color: #f5f5f5;
-}
-
-
-/* LAYOUT BÁSICO */
 .container {
   width: 100%;
   max-width: 1100px;
@@ -36,43 +27,16 @@ a:visited {
   padding: 0 1rem;
 }
 
-.social-links {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.social-links-label {
-  font-size: 0.85rem;
-  color: #9ca3af;
-}
-
-.social-link {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  border: 1px solid #4b5563;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  text-decoration: none;
-}
-
-.social-link:hover {
-  border-color: #f57c00;
-}
-
-
-/* HEADER / NAVBAR */
+/* ================================
+   HEADER / MENU MODERNO
+================================ */
 header {
-  background: #050509;
+  background: rgba(5, 5, 9, 0.92);
   border-bottom: 1px solid #222;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
+  backdrop-filter: blur(10px);
 }
 
 .navbar {
@@ -82,8 +46,9 @@ header {
   padding: 0.75rem 0;
 }
 
-.brand {
-  display: flex;
+/* LOGO + TÍTULO (AGORA CLICÁVEL) */
+.brand-link {
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
@@ -91,34 +56,47 @@ header {
 .brand-logo {
   width: 36px;
   height: 36px;
-  border-radius: 8px;
+  border-radius: 999px;
   background: radial-gradient(circle at 30% 30%, #ffd54f, #f57c00);
 }
 
 .brand-title {
   font-weight: 700;
   font-size: 1.1rem;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
+  color: #fff;
 }
 
 /* MENU DESKTOP */
-nav ul {
+.nav-menu ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
-nav a {
-  text-decoration: none;
-  color: #f5f5f5;
+.nav-link {
+  position: relative;
   font-size: 0.95rem;
+  padding: 0.3rem 0;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #f59e0b;
+  border-radius: 999px;
+  transition: width 0.18s ease-out;
 }
 
-/* HAMBURGER MOBILE */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* MOBILE MENU ICON */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -132,6 +110,7 @@ nav a:hover {
   background: #f5f5f5;
 }
 
+/* MOBILE MENU */
 .nav-menu {
   display: flex;
 }
@@ -140,7 +119,24 @@ nav a:hover {
   display: block;
 }
 
-/* HERO / BANNERS */
+@media (max-width: 700px) {
+  .nav-menu {
+    display: none;
+    width: 100%;
+  }
+  .nav-menu.open ul {
+    flex-direction: column;
+    margin-top: 0.75rem;
+    gap: 0.5rem;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+/* ================================
+   HERO / BANNERS
+================================ */
 .hero {
   padding: 3rem 0 2rem;
 }
@@ -194,6 +190,9 @@ nav a:hover {
   margin-top: 1rem;
 }
 
+/* ================================
+   BUTTONS
+================================ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -204,7 +203,6 @@ nav a:hover {
   border: none;
   font-size: 0.9rem;
   cursor: pointer;
-  text-decoration: none;
 }
 
 .btn-primary {
@@ -218,7 +216,9 @@ nav a:hover {
   border: 1px solid #555;
 }
 
-/* CARTÕES / SEÇÕES */
+/* ================================
+   CARDS / SEÇÕES
+================================ */
 .section {
   padding: 1.5rem 0 2.5rem;
 }
@@ -245,11 +245,18 @@ nav a:hover {
   gap: 1rem;
 }
 
+/* CARD BASE */
 .card {
   background: #111827;
   border-radius: 12px;
   padding: 0.75rem;
   border: 1px solid #1f2933;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
 .card-thumb {
@@ -262,14 +269,17 @@ nav a:hover {
 .card-title {
   font-size: 0.95rem;
   margin-bottom: 0.25rem;
+  color: #fff !important;
 }
 
 .card-meta {
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: #9ca3af !important;
 }
 
-/* LAYOUT PÁGINAS INTERNAS */
+/* ================================
+   PROGRAMA PAGE
+================================ */
 .page-header {
   padding: 2rem 0 1rem;
 }
@@ -284,7 +294,6 @@ nav a:hover {
   color: #cbd5f5;
 }
 
-/* LAYOUT DO PROGRAMA */
 .program-layout {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -323,7 +332,47 @@ nav a:hover {
   aspect-ratio: 16/9;
 }
 
-/* SIDEBAR */
+/* ================================
+   PROGRAM THUMBS (HOME)
+================================ */
+
+.program-thumb {
+  background: #050509;
+  border-radius: 8px;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+}
+
+.program-thumb-static {
+  background: radial-gradient(circle at top left, #1f2937, #020617);
+}
+
+/* Destaque automático (programa do vídeo mais novo) */
+.program-card-featured {
+  border: 1px solid #f59e0b;
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.35),
+              0 10px 30px rgba(0, 0, 0, 0.55);
+  position: relative;
+}
+
+.program-card-featured::before {
+  content: "Mais recente";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 999px;
+  border: 1px solid #f59e0b;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
 .sidebar-card {
   background: #111827;
   border-radius: 16px;
@@ -331,38 +380,42 @@ nav a:hover {
   border: 1px solid #1f2933;
 }
 
-/* FORMULÁRIO DE CONTATO */
-form {
-  max-width: 550px;
+/* ================================
+   SOCIAL LINKS (IG / X / Facebook)
+================================ */
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.form-group {
-  margin-bottom: 0.9rem;
-}
-
-label {
-  display: block;
+.social-links-label {
   font-size: 0.85rem;
-  margin-bottom: 0.25rem;
+  color: #9ca3af;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 0.6rem 0.7rem;
-  border-radius: 8px;
-  border: 1px solid #374151;
-  background: #050509;
-  color: #f5f5f5;
-  font: inherit;
+.social-link {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #fff;
 }
 
-textarea {
-  min-height: 140px;
-  resize: vertical;
+.social-link:hover {
+  border-color: #f57c00;
 }
 
-/* FOOTER */
+/* ================================
+   FOOTER
+================================ */
 footer {
   border-top: 1px solid #111827;
   padding: 1.5rem 0 1.8rem;
@@ -370,43 +423,21 @@ footer {
   color: #9ca3af;
 }
 
-/* RESPONSIVO */
+/* ================================
+   RESPONSIVIDADE
+================================ */
 @media (max-width: 900px) {
   .hero-grid,
   .program-layout {
     grid-template-columns: 1fr;
   }
-
   .grid-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 700px) {
-  .navbar {
-    align-items: center;
-  }
-
-  .nav-toggle {
-    display: flex;
-  }
-
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    margin-top: 0.5rem;
-    gap: 0.5rem;
-  }
-
   .grid-cards {
     grid-template-columns: 1fr;
   }
 }
-
-.podcast-player-wrapper {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #1f2933;
-  background: #050509;
-}
-
