@@ -2,22 +2,21 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Valmi TV – Formação, Fé e Conteúdo Católico</title>
+  <title>Programas – Valmi TV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <!-- Copia o mesmo header da home -->
   <header>
     <div class="container navbar">
       <div class="brand">
         <div class="brand-logo"></div>
         <div class="brand-title">VALMI TV</div>
       </div>
-
       <div class="nav-toggle" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
-
       <nav class="nav-menu" id="navMenu">
         <ul>
           <li><a href="index.html">Início</a></li>
@@ -31,130 +30,41 @@
     </div>
   </header>
 
-  <main>
-    <!-- HERO PRINCIPAL -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-main-card">
-          <div class="badge-live">
-            <span class="badge-dot"></span>
-            AO VIVO / EM BREVE
-          </div>
-          <h1 class="hero-title">Transmissões, análises e formação na fé católica.</h1>
-          <p class="hero-subtitle">
-            A Valmi TV reúne programas de formação, opinião, oração e podcast
-            para ajudar você a viver a fé com profundidade e clareza.
-          </p>
-          <div class="hero-actions">
-            <a href="ao-vivo.html" class="btn btn-primary">Assistir ao vivo</a>
-            <a href="programas.html" class="btn btn-secondary">Ver todos os programas</a>
-          </div>
-        </div>
-
-        <div>
-          <div class="card">
-            <div class="card-thumb" id="featuredVideo">
-              <!-- Vídeo em destaque será carregado via JavaScript -->
-            </div>
-            <div class="card-title" id="featuredTitle">Último episódio em destaque</div>
-            <div class="card-meta" id="featuredMeta">
-              Carregando o episódio mais recente dos programas .filos, O Católico e Crítica Católica...
-            </div>
-          </div>
-
-          <div class="card" style="margin-top: 1rem;">
-            <div class="card-title">Assine o canal</div>
-            <p class="card-meta">
-              Inscreva-se no YouTube e ative as notificações para não perder as próximas transmissões.
-            </p>
-          </div>
-        </div>
-      </div>
+  <main class="container">
+    <section class="page-header">
+      <h1 class="page-title">Programas</h1>
+      <p class="page-description">
+        Explore os programas da Valmi TV por temática, formato e apresentador.
+      </p>
     </section>
 
-    <!-- SEÇÃO PROGRAMAS -->
     <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">Programas</h2>
-            <p class="section-subtitle">Conteúdo organizado por temas e formatos.</p>
-          </div>
-          <a href="programas.html" class="btn btn-secondary">Ver todos</a>
-        </div>
+      <h2 class="section-title">Coleções principais</h2>
+      <div class="grid-cards" style="margin-top: 1rem;">
+        <a href="programas-valderi.html" class="card" style="text-decoration:none;">
+          <div class="card-thumb"></div>
+          <div class="card-title">Valderi Programas</div>
+          <div class="card-meta">Opinião, crítica, análise e formação.</div>
+        </a>
 
-        <div class="grid-cards">
-          <a href="programas-valderi.html" class="card" style="text-decoration:none;">
-            <div class="card-thumb"></div>
-            <div class="card-title">Valderi Programas</div>
-            <div class="card-meta">Análises, opinião e formação.</div>
-          </a>
+        <a href="programas-afo.html" class="card" style="text-decoration:none;">
+          <div class="card-thumb"></div>
+          <div class="card-title">AFO Programas</div>
+          <div class="card-meta">Família de oração, novenas e espiritualidade.</div>
+        </a>
 
-          <a href="programas-afo.html" class="card" style="text-decoration:none;">
-            <div class="card-thumb"></div>
-            <div class="card-title">AFO Programas</div>
-            <div class="card-meta">Apostolado em Família de Oração.</div>
-          </a>
-
-          <a href="podcast.html" class="card" style="text-decoration:none;">
-            <div class="card-thumb"></div>
-            <div class="card-title">Observatório Podcast</div>
-            <div class="card-meta">Conversas em profundidade.</div>
-          </a>
-
-          <a href="ao-vivo.html" class="card" style="text-decoration:none;">
-            <div class="card-thumb"></div>
-            <div class="card-title">Transmissões ao vivo</div>
-            <div class="card-meta">Celebrações, eventos e especiais.</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEÇÃO CHAMADA PARA AÇÃO -->
-    <section class="section">
-      <div class="container">
-        <div class="card">
-          <h2 class="section-title">Participe e compartilhe</h2>
-          <p class="page-description">
-            Ajude a espalhar este apostolado: compartilhe os programas, convide
-            amigos, reze conosco e acompanhe as formações semanais.
-          </p>
-
-          <!-- LINKS E "ÍCONES" DAS REDES SOCIAIS -->
-          <div class="social-links">
-            <span class="social-links-label">Redes sociais:</span>
-
-            <a href="https://x.com/prof_valderi"
-               target="_blank"
-               class="social-link"
-               aria-label="Perfil no X (@prof_valderi)">
-              X
-            </a>
-
-            <a href="https://instagram.com/prof.valderi_"
-               target="_blank"
-               class="social-link"
-               aria-label="Instagram (@prof.valderi_)">
-              IG
-            </a>
-
-            <a href="https://facebook.com/prof.valderi"
-               target="_blank"
-               class="social-link"
-               aria-label="Facebook (prof.valderi)">
-              f
-            </a>
-          </div>
-        </div>
+        <a href="observatorio.html" class="card" style="text-decoration:none;">
+          <div class="card-thumb"></div>
+          <div class="card-title">Observatório Podcast</div>
+          <div class="card-meta">Debates e conversas em profundidade.</div>
+        </a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <div>© <span id="year"></span> Valmi TV. Todos os direitos reservados.</div>
-      <div>Conteúdo de inspiração católica para formação e vida de oração.</div>
+      <div>© <span id="year"></span> Valmi TV.</div>
     </div>
   </footer>
 
@@ -164,94 +74,6 @@
       menu.classList.toggle('open');
     }
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ==============================
-    //  DESTAQUE: ÚLTIMO VÍDEO ENTRE 3 PLAYLISTS
-    // ==============================
-    const API_KEY = "AIzaSyAmNoCTSSD4t7YJCzo_Ak_BYXDmvFrM0cE";
-
-    // TROQUE ESTES DOIS IDs PELAS PLAYLISTS REAIS:
-    const PLAYLIST_FILOS = "PLrOEqj4ng7UIY6tji4pzQwIDfrZJyEKQa";
-    const PLAYLIST_OCATOLICO = "PLrOEqj4ng7UI1qjgag8v44aricWSD2RRW";
-
-    // Playlist da Crítica Católica (que você já passou):
-    const PLAYLIST_CRITICA = "PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9";
-
-    const PLAYLISTS = [
-      { id: PLAYLIST_FILOS, nome: ".filos" },
-      { id: PLAYLIST_OCATOLICO, nome: "O Católico" },
-      { id: PLAYLIST_CRITICA, nome: "Crítica Católica" }
-    ];
-
-    const featuredVideo = document.getElementById("featuredVideo");
-    const featuredTitle = document.getElementById("featuredTitle");
-    const featuredMeta = document.getElementById("featuredMeta");
-
-    async function getLatestFromPlaylist(playlist) {
-      if (!playlist.id || playlist.id.includes("SEU_ID")) {
-        // Se o ID não foi configurado ainda, ignora
-        return null;
-      }
-
-      const url =
-        `https://www.googleapis.com/youtube/v3/playlistItems` +
-        `?part=snippet&maxResults=1&playlistId=${playlist.id}&key=${API_KEY}`;
-
-      const res = await fetch(url);
-      const data = await res.json();
-
-      if (!data.items || !data.items.length) return null;
-
-      const snippet = data.items[0].snippet;
-      return {
-        videoId: snippet.resourceId.videoId,
-        title: snippet.title,
-        description: snippet.description || "",
-        publishedAt: snippet.publishedAt,
-        program: playlist.nome
-      };
-    }
-
-    async function loadFeaturedVideo() {
-      try {
-        const results = await Promise.all(
-          PLAYLISTS.map(pl => getLatestFromPlaylist(pl))
-        );
-
-        const valid = results.filter(v => v && v.videoId);
-
-        if (!valid.length) {
-          featuredMeta.textContent = "Não foi possível carregar o episódio em destaque no momento.";
-          return;
-        }
-
-        // Escolhe o vídeo com data mais recente
-        const latest = valid.reduce((acc, item) => {
-          return new Date(item.publishedAt) > new Date(acc.publishedAt) ? item : acc;
-        });
-
-        // Atualiza o player
-        featuredVideo.innerHTML = `
-          <iframe
-            style="width:100%; aspect-ratio:16/9; border:0;"
-            src="https://www.youtube.com/embed/${latest.videoId}"
-            title="${latest.title}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        `;
-
-        // Atualiza textos
-        featuredTitle.textContent = "Último episódio em destaque";
-        const dataBR = new Date(latest.publishedAt).toLocaleDateString("pt-BR");
-        featuredMeta.textContent = `${latest.title} · ${latest.program} · ${dataBR}`;
-      } catch (err) {
-        console.error("Erro ao carregar destaque:", err);
-        featuredMeta.textContent = "Erro ao carregar o episódio em destaque.";
-      }
-    }
-
-    loadFeaturedVideo();
   </script>
 </body>
 </html>
