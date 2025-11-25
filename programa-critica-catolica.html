@@ -40,7 +40,6 @@
 
     <section class="section program-layout">
       <div>
-
         <!-- ===========================
              VÍDEO PRINCIPAL AUTOMÁTICO
         ============================ -->
@@ -48,7 +47,7 @@
           <h2 class="section-title">Último episódio</h2>
 
           <div class="card-thumb" id="mainVideo" style="margin-bottom:1rem; overflow:hidden;">
-            <!-- Vídeo aparece aqui -->
+            <!-- Iframe do vídeo em foco será inserido aqui via JS -->
           </div>
 
           <div class="program-meta">
@@ -56,8 +55,9 @@
           </div>
 
           <div class="hero-actions" style="margin-top:1rem;">
-            <a href="https://www.youtube.com/playlist?list=PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9" target="_blank" class="btn btn-primary">
-              Ver playlist completa
+            <a href="https://www.youtube.com/playlist?list=PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9"
+               target="_blank" class="btn btn-primary">
+              Ver playlist completa no YouTube
             </a>
           </div>
         </div>
@@ -67,9 +67,9 @@
         ============================ -->
         <div class="program-episodes">
           <h2 class="section-title">Episódios recentes</h2>
+          <!-- Os 3 episódios recentes serão inseridos aqui via JS -->
           <div id="recentEpisodes"></div>
         </div>
-
       </div>
 
       <aside class="sidebar-card">
@@ -106,56 +106,69 @@
     const mainVideoDiv = document.getElementById("mainVideo");
     const recentContainer = document.getElementById("recentEpisodes");
 
+    let currentVideoId = null;
+
+    // Função que atualiza o player principal sem sair da página
+    function setPlayer(videoId) {
+      currentVideoId = videoId;
+      mainVideoDiv.innerHTML = `
+        <iframe
+          style="width:100%; aspect-ratio:16/9; border:0;"
+          src="https://www.youtube.com/embed/${videoId}"
+          title="Crítica Católica - episódio"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
     // ===============================
     //   BUSCAR VÍDEOS DA PLAYLIST
     // ===============================
     async function loadPlaylist() {
-      const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${MAX_RESULTS}&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
+      const url =
+        `https://www.googleapis.com/youtube/v3/playlistItems` +
+        `?part=snippet&maxResults=${MAX_RESULTS}` +
+        `&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
 
       try {
         const response = await fetch(url);
         const data = await response.json();
 
-        if (!data.items) return;
+        if (!data.items || !data.items.length) return;
 
-        // --- VÍDEO PRINCIPAL (primeiro item)
-        const first = data.items[0].snippet;
-        const firstId = first.resourceId.videoId;
+        // --- VÍDEO PRINCIPAL (primeiro da lista)
+        const firstSnippet = data.items[0].snippet;
+        const firstId = firstSnippet.resourceId.videoId;
+        setPlayer(firstId);
 
-        mainVideoDiv.innerHTML = `
-          <iframe style="width:100%; aspect-ratio:16/9; border:0;"
-            src="https://www.youtube.com/embed/${firstId}"
-            allowfullscreen>
-          </iframe>
-        `;
-
-        // --- EPISÓDIOS RECENTES ---
+        // --- EPISÓDIOS RECENTES (3)
         recentContainer.innerHTML = data.items
           .map(item => {
             const s = item.snippet;
             const vid = s.resourceId.videoId;
+            const published = new Date(s.publishedAt).toLocaleDateString("pt-BR");
+            const description = (s.description || "").substring(0, 140);
 
             return `
-              <article class="episode-item">
+              <article class="episode-item" data-video-id="${vid}">
                 <div class="episode-thumb" style="
-                  background:url('https://i.ytimg.com/vi/${vid}/hqdefault.jpg');
-                  background-size:cover;">
-                </div>
+                  background:url('https://i.ytimg.com/vi/${vid}/hqdefault.jpg') center center / cover no-repeat;
+                "></div>
 
                 <div>
                   <h3 class="card-title">${s.title}</h3>
-                  <div class="card-meta">
-                    ${new Date(s.publishedAt).toLocaleDateString("pt-BR")}
-                  </div>
+                  <div class="card-meta">${published}</div>
 
                   <p style="font-size:0.9rem; margin-top:0.25rem;">
-                    ${s.description.substring(0, 140)}...
+                    ${description}...
                   </p>
 
-                  <a href="https://www.youtube.com/watch?v=${vid}" target="_blank"
-                    class="btn btn-secondary" style="margin-top:0.4rem;">
+                  <button class="btn btn-secondary js-watch"
+                          data-video-id="${vid}"
+                          style="margin-top:0.4rem;">
                     Assistir
-                  </a>
+                  </button>
                 </div>
               </article>
             `;
@@ -166,6 +179,29 @@
         console.error("Erro ao carregar playlist:", error);
       }
     }
+
+    // ===============================
+    //   CLIQUES NOS EPISÓDIOS RECENTES
+    // ===============================
+    recentContainer.addEventListener("click", (event) => {
+      const button = event.target.closest(".js-watch");
+      const card = event.target.closest("[data-video-id]");
+
+      if (!button && !card) return;
+
+      event.preventDefault();
+
+      const videoId =
+        (button && button.getAttribute("data-video-id")) ||
+        (card && card.getAttribute("data-video-id"));
+
+      if (!videoId) return;
+
+      setPlayer(videoId);
+
+      // Opcional: rolar suavemente até o player principal
+      mainVideoDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
 
     loadPlaylist();
   </script>
