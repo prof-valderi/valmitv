@@ -400,3 +400,11 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.podcast-player-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #1f2933;
+  background: #050509;
+}
+
