@@ -40,43 +40,37 @@
 
     <section class="section program-layout">
       <div>
+
+        <!-- ===========================
+             VÍDEO PRINCIPAL AUTOMÁTICO
+        ============================ -->
         <div class="program-hero">
-          <div class="card-thumb" style="margin-bottom:1rem;">
-            <!-- Aqui pode ir um thumbnail fixo do programa ou um vídeo principal -->
+          <h2 class="section-title">Último episódio</h2>
+
+          <div class="card-thumb" id="mainVideo" style="margin-bottom:1rem; overflow:hidden;">
+            <!-- Vídeo carregado via JS -->
           </div>
+
           <div class="program-meta">
-            Apresentação: Valderi · Formato: vídeo · Periodicidade: semanal (ajuste conforme for).
+            Reprodução automática a partir da playlist oficial.
           </div>
-          <p>
-            Aqui você pode descrever com mais detalhes a proposta do programa:
-            público a que se destina, temas recorrentes, estilo, etc.
-          </p>
 
           <div class="hero-actions" style="margin-top:1rem;">
             <a href="https://www.youtube.com/playlist?list=PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9" target="_blank" class="btn btn-primary">
-              Ver playlist no YouTube
+              Ver playlist completa
             </a>
           </div>
         </div>
 
+        <!-- ===========================
+             EPISÓDIOS RECENTES AUTOMÁTICOS
+        ============================ -->
         <div class="program-episodes">
           <h2 class="section-title">Episódios recentes</h2>
 
-          <article class="episode-item">
-            <div class="episode-thumb"></div>
-            <div>
-              <h3 class="card-title">Título do episódio 01</h3>
-              <div class="card-meta">Data · duração aproximada</div>
-              <p style="font-size:0.9rem; margin-top:0.25rem;">
-                Pequena descrição do episódio. Você pode colocar aqui uma sinopse
-                de 2–3 linhas para contextualizar.
-              </p>
-              <a href="https://www.youtube.com/watch?v=8FkUXvZDR30" class="btn btn-secondary" style="margin-top:0.4rem;">Assistir</a>
-            </div>
-          </article>
-
-          <!-- Duplicar <article> para outros episódios -->
+          <div id="recentEpisodes"></div>
         </div>
+
       </div>
 
       <aside class="sidebar-card">
@@ -102,7 +96,80 @@
       menu.classList.toggle('open');
     }
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===========================
+    //    CONFIGURAÇÕES
+    // ===========================
+    const API_KEY = "YOUR_API_KEY_HERE"; // <-- coloque sua API Key aqui
+    const PLAYLIST_ID = "PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9";
+    const MAX_RESULTS = 3;
+
+    const mainVideoDiv = document.getElementById("mainVideo");
+    const recentContainer = document.getElementById("recentEpisodes");
+
+    // ===========================
+    //    BUSCAR VÍDEOS DA PLAYLIST
+    // ===========================
+    async function loadPlaylist() {
+      const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${MAX_RESULTS}&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (!data.items) return;
+
+        // --- VÍDEO PRINCIPAL (primeiro item da playlist)
+        const first = data.items[0].snippet;
+        const firstId = first.resourceId.videoId;
+
+        mainVideoDiv.innerHTML = `
+          <iframe style="width:100%; aspect-ratio:16/9; border:0;"
+            src="https://www.youtube.com/embed/${firstId}"
+            allowfullscreen>
+          </iframe>
+        `;
+
+        // --- EPISÓDIOS RECENTES (3 itens)
+        recentContainer.innerHTML = data.items
+          .map(item => {
+            const s = item.snippet;
+            const vid = s.resourceId.videoId;
+
+            return `
+              <article class="episode-item">
+                <div class="episode-thumb" style="
+                  background:url('https://i.ytimg.com/vi/${vid}/hqdefault.jpg');
+                  background-size:cover;">
+                </div>
+
+                <div>
+                  <h3 class="card-title">${s.title}</h3>
+                  <div class="card-meta">
+                    ${new Date(s.publishedAt).toLocaleDateString("pt-BR")}
+                  </div>
+
+                  <p style="font-size:0.9rem; margin-top:0.25rem;">
+                    ${s.description.substring(0, 140)}...
+                  </p>
+
+                  <a href="https://www.youtube.com/watch?v=${vid}" target="_blank"
+                    class="btn btn-secondary" style="margin-top:0.4rem;">
+                    Assistir
+                  </a>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+      } catch (error) {
+        console.error("Erro ao carregar playlist:", error);
+      }
+    }
+
+    loadPlaylist();
   </script>
+
 </body>
 </html>
-
