@@ -13,10 +13,12 @@ body {
 }
 
 /* Links sempre brancos, mesmo após clicados */
+/* Links sempre brancos, mesmo após clicados */
 a,
 a:visited {
   color: #f5f5f5;
 }
+
 
 /* Garante que nomes de programas em cards continuem brancos */
 .card .card-title,
