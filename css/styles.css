@@ -256,8 +256,10 @@ header {
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  border-color: #e5e7eb;              /* borda mais clara */
+  box-shadow: 0 8px 24px rgba(15,23,42,0.7); /* sombra mais clara e suave */
 }
+
 
 .card-thumb {
   background: #0b0b0f;
