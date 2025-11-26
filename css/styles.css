@@ -279,6 +279,12 @@ header {
   color: #9ca3af !important;
 }
 
+.subscribe-highlight {
+  font-weight: 700;
+  color: #f59e0b !important;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
 /* ================================
    PROGRAMA PAGE
 ================================ */
@@ -449,6 +455,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
