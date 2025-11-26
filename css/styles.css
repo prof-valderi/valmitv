@@ -443,3 +443,9 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+.program-thumb-observatorio {
+  background-image: url("img/observatorio-thumb.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
