@@ -456,6 +456,73 @@ footer {
   }
 }
 
+/* =========================================================
+   CARD MAIS RECENTE – EFEITO PREMIUM
+   ========================================================= */
+
+/* Classe que você já usa via JS:
+   .program-card-featured  → permanece igual
+   Agora vamos estilizar melhor aqui. */
+
+.program-card-featured {
+  position: relative;
+  border: 2px solid #f59e0b !important;
+  box-shadow:
+    0 0 10px rgba(245, 158, 11, 0.4),
+    0 0 20px rgba(245, 158, 11, 0.25),
+    0 10px 28px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+  transition: all 0.25s ease-in-out;
+  border-radius: 14px;
+}
+
+/* Brilho pulsante suave ao redor do card */
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 14px rgba(245, 158, 11, 0.6); }
+  50%  { box-shadow: 0 0 26px rgba(255, 193, 101, 0.85); }
+  100% { box-shadow: 0 0 14px rgba(245, 158, 11, 0.6); }
+}
+
+.program-card-featured {
+  animation: pulseGlow 2.6s infinite;
+}
+
+/* Hover ainda mais destacado */
+.program-card-featured:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: #ffb84c !important;
+  box-shadow:
+    0 0 20px rgba(255, 184, 76, 0.9),
+    0 0 30px rgba(255, 184, 76, 0.45);
+}
+
+/* =========================================================
+   SELO “NOVO” ANIMADO
+   ========================================================= */
+.program-card-featured::before {
+  content: "NOVO!";
+  position: absolute;
+  top: 10px;
+  left: -6px;
+  padding: 3px 10px;
+  background: linear-gradient(45deg, #f59e0b, #ffcc7a);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.55);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #050509;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  z-index: 10;
+  transform: rotate(-6deg);
+  animation: bounceTag 1.6s ease-in-out infinite;
+}
+
+/* Animação do selo */
+@keyframes bounceTag {
+  0%   { transform: rotate(-6deg) translateY(0px); }
+  50%  { transform: rotate(-6deg) translateY(-4px); }
+  100% { transform: rotate(-6deg) translateY(0px); }
+}
 
 
 
