@@ -492,7 +492,7 @@ footer {
 }
 
 .program-thumb-observatorio {
-  background-image: url("img/observatorio-thumb.jpg");
+  background-image: url("../img/observatorio-thumb.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -524,6 +524,7 @@ footer {
   50%  { transform: rotate(-6deg) translateY(-4px); }
   100% { transform: rotate(-6deg) translateY(0px); }
 }
+
 
 
 
