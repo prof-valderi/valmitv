@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Copia o mesmo header da home -->
+  <!-- Header no mesmo estilo da home -->
   <header>
     <div class="container navbar">
       <div class="brand">
-        <!-- Agora o título/logotipo leva para a home -->
         <a href="index.html" class="brand-link">
           <div class="brand-logo"></div>
           <div class="brand-title">VALMI TV</div>
@@ -22,12 +21,12 @@
       </div>
       <nav class="nav-menu" id="navMenu">
         <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="programas.html">Programas</a></li>
-          <li><a href="ao-vivo.html">Ao vivo</a></li>
-          <li><a href="podcast.html">Podcast</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="contato.html">Contato</a></li>
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="programas.html" class="nav-link">Programas</a></li>
+          <li><a href="ao-vivo.html" class="nav-link">Ao vivo</a></li>
+          <li><a href="observatorio.html" class="nav-link">Observatório</a></li>
+          <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+          <li><a href="contato.html" class="nav-link">Contato</a></li>
         </ul>
       </nav>
     </div>
@@ -44,23 +43,46 @@
     <section class="section">
       <h2 class="section-title">Coleções principais</h2>
       <div class="grid-cards" style="margin-top: 1rem;">
-        <a href="programas-valderi.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
+
+        <!-- Valderi Programas – miniatura do último vídeo de uma playlist (ex: Crítica Católica) -->
+        <a
+          href="programas-valderi.html"
+          class="card program-card"
+          style="text-decoration:none;"
+          data-playlist-id="PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9"
+          data-program-name="Valderi Programas"
+        >
+          <div class="card-thumb program-thumb"></div>
           <div class="card-title">Valderi Programas</div>
           <div class="card-meta">Opinião, crítica, análise e formação.</div>
         </a>
 
-        <a href="programas-afo.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
+        <!-- AFO Programas – coloque aqui uma playlist representativa da coleção AFO -->
+        <a
+          href="programas-afo.html"
+          class="card program-card"
+          style="text-decoration:none;"
+          data-playlist-id="PL_SEU_ID_DA_PLAYLIST_AFO_AQUI"
+          data-program-name="AFO Programas"
+        >
+          <div class="card-thumb program-thumb"></div>
           <div class="card-title">AFO Programas</div>
           <div class="card-meta">Família de oração, novenas e espiritualidade.</div>
         </a>
 
-        <a href="podcast.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
+        <!-- Observatório Podcast – se tiver playlist no YouTube, preencha; senão, thumb pode ficar estática -->
+        <a
+          href="observatorio.html"
+          class="card program-card"
+          style="text-decoration:none;"
+          data-playlist-id="PL_SEU_ID_DA_PLAYLIST_OBSERVATORIO_AQUI"
+          data-program-name="Observatório Podcast"
+        >
+          <div class="card-thumb program-thumb"></div>
           <div class="card-title">Observatório Podcast</div>
           <div class="card-meta">Debates e conversas em profundidade.</div>
         </a>
+
       </div>
     </section>
   </main>
@@ -77,7 +99,62 @@
       menu.classList.toggle('open');
     }
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ================
+    // MINIATURAS: último vídeo de cada playlist
+    // ================
+    const API_KEY = "AIzaSyAmNoCTSSD4t7YJCzo_Ak_BYXDmvFrM0cE";
+
+    const programCards = Array.from(document.querySelectorAll(".program-card")).map(card => ({
+      playlistId: card.dataset.playlistId,
+      name: card.dataset.programName,
+      thumbEl: card.querySelector(".program-thumb")
+    }));
+
+    async function getLatestThumb(p) {
+      if (!p.playlistId || p.playlistId.includes("SEU_ID")) {
+        return null; // se ainda não configurou a playlist, pula
+      }
+
+      const url =
+        `https://www.googleapis.com/youtube/v3/playlistItems` +
+        `?part=snippet&maxResults=1&playlistId=${p.playlistId}&key=${API_KEY}`;
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (!data.items || !data.items.length) return null;
+
+      const snippet = data.items[0].snippet;
+      const thumbs = snippet.thumbnails || {};
+      const thumbUrl =
+        (thumbs.maxres && thumbs.maxres.url) ||
+        (thumbs.high && thumbs.high.url) ||
+        (thumbs.medium && thumbs.medium.url) ||
+        (thumbs.default && thumbs.default.url) ||
+        "";
+
+      return { ...p, thumbUrl };
+    }
+
+    async function loadProgramThumbnails() {
+      try {
+        const results = await Promise.all(programCards.map(getLatestThumb));
+        const valid = results.filter(Boolean);
+
+        valid.forEach(v => {
+          if (v.thumbEl && v.thumbUrl) {
+            v.thumbEl.style.backgroundImage = `url('${v.thumbUrl}')`;
+            v.thumbEl.style.backgroundSize = "cover";
+            v.thumbEl.style.backgroundPosition = "center";
+          }
+        });
+      } catch (error) {
+        console.error("Erro ao carregar miniaturas de programas:", error);
+      }
+    }
+
+    loadProgramThumbnails();
   </script>
 </body>
 </html>
-
