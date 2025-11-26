@@ -421,11 +421,6 @@ header {
   border-color: #f57c00;
 }
 
-.program-thumb-observatorio {
-  background-image: url("img/observatorio-thumb.jpg");
-  background-size: cover;
-  background-position: center;
-}
 
 /* ================================
    FOOTER
@@ -496,6 +491,12 @@ footer {
     0 0 30px rgba(255, 184, 76, 0.45);
 }
 
+.program-thumb-observatorio {
+  background-image: url("img/observatorio-thumb.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 /* =========================================================
    SELO “NOVO” ANIMADO
    ========================================================= */
@@ -523,6 +524,7 @@ footer {
   50%  { transform: rotate(-6deg) translateY(-4px); }
   100% { transform: rotate(-6deg) translateY(0px); }
 }
+
 
 
 
