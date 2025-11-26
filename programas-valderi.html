@@ -2,65 +2,116 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Valderi Programas – Valmi TV</title>
+  <title>Programas Valderi – Valmi TV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Header igual -->
+  <!-- HEADER -->
   <header>
     <div class="container navbar">
       <div class="brand">
-       <!-- Agora o título/logotipo leva para a home -->
         <a href="index.html" class="brand-link">
           <div class="brand-logo"></div>
           <div class="brand-title">VALMI TV</div>
         </a>
-        </div>
+      </div>
       <div class="nav-toggle" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
       <nav class="nav-menu" id="navMenu">
         <ul>
-          <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
-          <li class="nav-item"><a href="programas.html" class="nav-link">Programas</a></li>
-          <li class="nav-item"><a href="ao-vivo.html" class="nav-link">Ao vivo</a></li>
-          <li class="nav-item"><a href="observatorio.html" class="nav-link">Observatório</a></li>
-          <li class="nav-item"><a href="sobre.html" class="nav-link">Sobre</a></li>
-          <li class="nav-item"><a href="contato.html" class="nav-link">Contato</a></li>
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="programas.html" class="nav-link">Programas</a></li>
+          <li><a href="ao-vivo.html" class="nav-link">Ao vivo</a></li>
+          <li><a href="observatorio.html" class="nav-link">Observatório</a></li>
+          <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+          <li><a href="contato.html" class="nav-link">Contato</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="container">
+    <!-- CABEÇALHO -->
     <section class="page-header">
-      <h1 class="page-title">Valderi Programas</h1>
+      <h1 class="page-title">Programas Valderi</h1>
       <p class="page-description">
-        Programas apresentados por Valderi, com foco em formação, análise e
-        leitura católica da realidade.
+        Programas apresentados por Valderi: crítica, formação filosófica e vida do católico
+        no mundo de hoje.
       </p>
     </section>
 
+    <!-- PLAYER VALDERI NO TOPO -->
     <section class="section">
-      <div class="grid-cards">
-        <a href="programa-critica-catolica.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
-          <div class="card-title">Crítica Católica</div>
-          <div class="card-meta">Análise crítica de temas atuais à luz da fé.</div>
-        </a>
-        <a href="programa-o-catolico.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
-          <div class="card-title">O Católico</div>
-          <div class="card-meta">Assuntos católicos para católicos.</div>
-        </a>
-        <a href="programa-filos.html" class="card" style="text-decoration:none;">
-          <div class="card-thumb"></div>
-          <div class="card-title">.filos</div>
-          <div class="card-meta">Temas de filosofia.</div>
-        </a>        
+      <div class="program-hero">
+        <h2 class="section-title">Player Valderi</h2>
+        <p class="program-meta">
+          A playlist mais recente entre os programas abaixo aparece automaticamente neste player.
+          Você pode trocar de programa clicando em <strong>Assistir aqui</strong> nos cards.
+        </p>
 
-        <!-- Você pode duplicar este bloco para outros programas (.filos, O Católico, etc.) -->
+        <div class="card-thumb" id="valderiPlayerWrapper" style="overflow:hidden;">
+          <!-- O player da playlist selecionada aparece aqui -->
+        </div>
+
+        <p class="program-meta" style="margin-top:0.75rem;">
+          Use a lista do próprio player para navegar entre os vídeos do programa escolhido.
+        </p>
+      </div>
+    </section>
+
+    <!-- GRID DE PROGRAMAS VALDERI -->
+    <section class="section">
+      <h2 class="section-title">Programas</h2>
+      <p class="section-subtitle">
+        Escolha um dos programas para assistir diretamente aqui na página.
+      </p>
+
+      <div class="grid-cards" style="margin-top:1rem;">
+
+        <!-- Crítica Católica -->
+        <div
+          class="card valderi-card"
+          data-playlist-id="PLrOEqj4ng7UJeLkyVzpXm2jMYz6qySQc9"
+        >
+          <div class="card-thumb program-thumb"></div>
+          <div class="card-title">Crítica Católica</div>
+          <div class="card-meta">Carregando informações…</div>
+          <div class="hero-actions" style="margin-top:0.5rem;">
+            <a href="#" class="btn btn-secondary valderi-link">Assistir aqui</a>
+            <a href="programa-critica-catolica.html" class="btn btn-secondary">Ver página do programa</a>
+          </div>
+        </div>
+
+        <!-- .filos (troque pelo ID REAL da playlist de .filos) -->
+        <div
+          class="card valderi-card"
+          data-playlist-id="PL_SEU_ID_REAL_FILOS_AQUI"
+        >
+          <div class="card-thumb program-thumb"></div>
+          <div class="card-title">.filos</div>
+          <div class="card-meta">Carregando informações…</div>
+          <div class="hero-actions" style="margin-top:0.5rem;">
+            <a href="#" class="btn btn-secondary valderi-link">Assistir aqui</a>
+            <a href="programa-filos.html" class="btn btn-secondary">Ver página do programa</a>
+          </div>
+        </div>
+
+        <!-- O Católico (troque pelo ID REAL da playlist de O Católico) -->
+        <div
+          class="card valderi-card"
+          data-playlist-id="PL_SEU_ID_REAL_OCATOLICO_AQUI"
+        >
+          <div class="card-thumb program-thumb"></div>
+          <div class="card-title">O Católico</div>
+          <div class="card-meta">Carregando informações…</div>
+          <div class="hero-actions" style="margin-top:0.5rem;">
+            <a href="#" class="btn btn-secondary valderi-link">Assistir aqui</a>
+            <a href="programa-o-catolico.html" class="btn btn-secondary">Ver página do programa</a>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -77,7 +128,115 @@
       menu.classList.toggle('open');
     }
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ==============================
+    //  PLAYER VALDERI + MINIATURAS + DESTAQUE MAIS RECENTE
+    // ==============================
+    const API_KEY = "AIzaSyAmNoCTSSD4t7YJCzo_Ak_BYXDmvFrM0cE";
+
+    const valderiPlayerWrapper = document.getElementById("valderiPlayerWrapper");
+
+    const valderiCards = Array.from(document.querySelectorAll(".valderi-card")).map(cardEl => ({
+      rootEl: cardEl,
+      playlistId: cardEl.dataset.playlistId,
+      thumbEl: cardEl.querySelector(".program-thumb"),
+      metaEl: cardEl.querySelector(".card-meta"),
+      linkBtn: cardEl.querySelector(".valderi-link")
+    }));
+
+    function setValderiPlayer(playlistId) {
+      if (!playlistId || playlistId.includes("SEU_ID_REAL")) return;
+      valderiPlayerWrapper.innerHTML = `
+        <iframe
+          style="width:100%; aspect-ratio:16/9; border:0;"
+          src="https://www.youtube.com/embed/videoseries?list=${playlistId}"
+          title="Playlist Valderi"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    async function getLatestFromPlaylist(playlistId) {
+      if (!playlistId || playlistId.includes("SEU_ID_REAL")) return null;
+
+      const url =
+        "https://www.googleapis.com/youtube/v3/playlistItems" +
+        `?part=snippet&maxResults=1&playlistId=${playlistId}&key=${API_KEY}`;
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (!data.items || !data.items.length) return null;
+
+      const snippet = data.items[0].snippet;
+      const thumbs = snippet.thumbnails || {};
+      const thumbUrl =
+        (thumbs.maxres && thumbs.maxres.url) ||
+        (thumbs.high && thumbs.high.url) ||
+        (thumbs.medium && thumbs.medium.url) ||
+        (thumbs.default && thumbs.default.url) ||
+        "";
+
+      return {
+        videoId: snippet.resourceId.videoId,
+        title: snippet.title,
+        publishedAt: snippet.publishedAt,
+        thumbUrl
+      };
+    }
+
+    async function loadValderiPrograms() {
+      let latest = null;
+
+      for (const card of valderiCards) {
+        try {
+          const info = await getLatestFromPlaylist(card.playlistId);
+
+          if (!info) {
+            card.metaEl.textContent = "Não foi possível carregar o último vídeo.";
+            continue;
+          }
+
+          // thumb no card
+          if (card.thumbEl && info.thumbUrl) {
+            card.thumbEl.style.backgroundImage = `url('${info.thumbUrl}')`;
+            card.thumbEl.style.backgroundSize = "cover";
+            card.thumbEl.style.backgroundPosition = "center";
+          }
+
+          const dataBR = new Date(info.publishedAt).toLocaleDateString("pt-BR");
+          card.metaEl.textContent = `Último vídeo: ${info.title} · ${dataBR}`;
+
+          // botão "Assistir aqui"
+          card.linkBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            setValderiPlayer(card.playlistId);
+            valderiPlayerWrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+
+          // descobrir qual playlist é mais recente
+          if (!latest || new Date(info.publishedAt) > new Date(latest.info.publishedAt)) {
+            latest = { card, info };
+          }
+        } catch (err) {
+          console.error("Erro ao carregar playlist Valderi:", err);
+          card.metaEl.textContent = "Erro ao carregar informações desta playlist.";
+        }
+      }
+
+      // Destacar a playlist mais recente
+      if (latest) {
+        // player automático
+        setValderiPlayer(latest.card.playlistId);
+
+        // adiciona classe global de destaque (já criada antes, com selo “NOVO!”)
+        latest.card.rootEl.classList.add("program-card-featured");
+      }
+    }
+
+    loadValderiPrograms();
   </script>
 </body>
 </html>
-
