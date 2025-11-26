@@ -525,6 +525,45 @@ footer {
   100% { transform: rotate(-6deg) translateY(0px); }
 }
 
+/* =========================================================
+   CARD AFO MAIS RECENTE – destaque em branco
+   ========================================================= */
+
+.afo-card-featured {
+  position: relative;
+  border: 2px solid #f9fafb !important; /* borda branca */
+  box-shadow:
+    0 0 14px rgba(249, 250, 251, 0.4),
+    0 12px 30px rgba(15, 23, 42, 0.9);
+  transform: translateY(-2px);
+  transition: all 0.25s ease-in-out;
+}
+
+/* Hover ainda mais ressaltado */
+.afo-card-featured:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 20px rgba(249, 250, 251, 0.7),
+    0 18px 36px rgba(15, 23, 42, 0.95);
+}
+
+/* Selo "Mais recente!" */
+.afo-card-featured::before {
+  content: "Mais recente!";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(15, 23, 42, 0.9);
+  color: #f9fafb;
+  border-radius: 999px;
+  border: 1px solid #f9fafb;
+}
+
 
 
 
