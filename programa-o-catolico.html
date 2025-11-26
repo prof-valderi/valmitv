@@ -10,23 +10,20 @@
   <header>
     <div class="container navbar">
       <div class="brand">
-        <!-- Agora o título/logotipo leva para a home -->
-        <a href="index.html" class="brand-link">
-          <div class="brand-logo"></div>
-          <div class="brand-title">VALMI TV</div>
-        </a>
+        <div class="brand-logo"></div>
+        <div class="brand-title">VALMI TV</div>
       </div>
       <div class="nav-toggle" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
       <nav class="nav-menu" id="navMenu">
         <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="programas.html">Programas</a></li>
-          <li><a href="ao-vivo.html">Ao vivo</a></li>
-          <li><a href="podcast.html">Podcast</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="contato.html">Contato</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+          <li class="nav-item"><a href="programas.html" class="nav-link">Programas</a></li>
+          <li class="nav-item"><a href="ao-vivo.html" class="nav-link">Ao vivo</a></li>
+          <li class="nav-item"><a href="observatorio.html" class="nav-link">Observatório</a></li>
+          <li class="nav-item"><a href="sobre.html" class="nav-link">Sobre</a></li>
+          <li class="nav-item"><a href="contato.html" class="nav-link">Contato</a></li>
         </ul>
       </nav>
     </div>
@@ -56,7 +53,7 @@
           </div>
 
           <div class="hero-actions" style="margin-top:1rem;">
-            <a href="https://www.youtube.com/playlist?list=PLrOEqj4ng7UI1qjgag8v44aricWSD2RRW"
+            <a href="https://www.youtube.com/playlist?list=PL_SEU_ID_DA_PLAYLIST_OCATOLICO_AQUI"
                target="_blank" class="btn btn-primary">
               Ver playlist completa no YouTube
             </a>
@@ -98,7 +95,7 @@
     //   CONFIGURAÇÕES
     // ===============================
     const API_KEY = "AIzaSyAmNoCTSSD4t7YJCzo_Ak_BYXDmvFrM0cE";
-    const PLAYLIST_ID = "PLrOEqj4ng7UI1qjgag8v44aricWSD2RRW"; // TROCAR!
+    const PLAYLIST_ID = "PL_SEU_ID_DA_PLAYLIST_OCATOLICO_AQUI"; // TROCAR!
     const MAX_RESULTS = 3;
 
     const mainVideoDiv = document.getElementById("mainVideo");
